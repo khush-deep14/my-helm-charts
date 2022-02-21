@@ -1,6 +1,0 @@
-owner: khush-deep14
-git-repo: my-helm-charts
-package-path: .deploy
-token: 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
-git-base-url: https://api.github.com/
-git-upload-url: https://uploads.github.com/
