@@ -1,35 +1,30 @@
 name: Release Charts
 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  release: ubuntu-latest
-  steps:
-    -name: Checkout
-    uses: actions/checkout@v2
-    with:
-      fetch-depth: 0 
-    
-    -name: Configure Git
-    run: |
-      git config user.name "$GITHUB_ACTOR"
-      git conifg user.email "$GITHUB_ACTOR@users.noreply.github.com"
-    
-    -name: Install Helm 
-     uses: azure/setup-helm@v1
-     with:
-      version: v3.7.1
-      
-    -name: Run chart-releaser
-     uses: helm/chart-releaser-action@v1.3.0
-     env:
-      CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.7.1
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.3.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
