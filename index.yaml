@@ -20,4 +20,15 @@ entries:
     urls:
     - https://github.com/khush-deep14/my-helm-charts/releases/download/app2-0.1.0/app2-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-20T17:29:46.812392738+02:00"
+  app4:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-02-22T09:07:12.343108623Z"
+    description: A Helm chart for Kubernetes
+    digest: d50c30e49ffcbac4d7788f0a827c8b2b5e06cb6a7e55e0b641ec07c2cb2ab002
+    name: app4
+    type: application
+    urls:
+    - https://github.com/khush-deep14/my-helm-charts/releases/download/app4-0.1.0/app4-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-02-22T09:07:12.343121223Z"
